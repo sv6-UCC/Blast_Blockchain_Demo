@@ -1,0 +1,79 @@
+
+
+<div class="well well-sm" ng-class="{'well-success': vm.valid, 'well-error': !vm.valid}">
+    <form class="form-horizontal">
+        <!-- Block number -->
+        <div class="form-group">
+            <label for="block{{vm.id}}number" class="col-sm-2 control-label">Date:</label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                    <input id="block{{vm.id}}number"
+                           ng-model="vm.number"
+                           ng-change="vm.updateBlock()"
+                           class="form-control"disabled>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nonce -->
+
+                <!-- Nonce -->
+        <div class="form-group">
+            <label for="block{{vm.id}}nonce" class="col-sm-2 control-label">Nonce:</label>
+            <div class="col-sm-10">
+                <input id="block{{vm.id}}nonce"
+                        ng-model="vm.nonce"
+                        ng-change="vm.updateBlock()"
+                        class="form-control"disabled>
+            </div>
+        </div>
+
+        <!-- Coinbase -->
+        
+        <table class="trades" id="{{vm.id}}" style="width:100%">
+            <thead>
+                <caption>Products</caption>
+                <tr>
+                    <th>Item</th>
+                    <th>Weight</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+        
+        </table>
+
+        <!-- Prev -->
+        <div class="form-group">
+            <label for="block{{vm.id}}prev" class="col-sm-2 control-label">Prev:</label>
+            <div class="col-sm-10">
+                <input id="block{{vm.id}}prev"
+                       ng-model="vm.prev"
+                       ng-readonly="true"
+                       class="form-control">
+            </div>
+        </div>
+
+        <!-- Hash -->
+        <div class="form-group">
+            <label for="block{{vm.id}}hash" class="col-sm-2 control-label">Hash:</label>
+            <div class="col-sm-10">
+                <input id="block{{vm.id}}hash"
+                       ng-model="vm.hash"
+                       ng-readonly="true"
+                       class="form-control">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <div class="col-sm-2"><i class="icon-spinner icon-spin icon-large"></i></div>
+            <div class="col-sm-10">
+                <button data-style="expand-right" class="btn btn-primary ladda-button" ng-click="vm.mine()">
+                    <span class="ladda-label">Mine</span>
+                </button>
+                <span ng-if="vm.mined && $root.expertMode">{{vm.miningStats}}</span>
+            </div>
+        </div>
+    </form>
+</div>

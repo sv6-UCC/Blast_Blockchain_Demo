@@ -1,0 +1,25 @@
+
+
+#trades {
+    background-color: #FFFFFF; }
+    table > thead > tr > th {
+      color: #054d00; }
+    table > tbody > tr > td {
+      color: #27a101; }
+    table.table-hover tbody tr {
+      background-color: #FFFFFF; }
+    table td, table th, table thead th {
+      border-color: #E8E8E8 !important; }
+    .table.table-hover tbody tr:hover {
+      background-color: rgba(25, 30, 58, 0.631373); }
+    .table.table > tbody > tr > td i.t-icon {
+      padding: 5px;
+      border-radius: 50%;
+      font-size: 14px;
+      vertical-align: sub;
+      cursor: pointer;
+      color: #0e1726 !important; }
+    .table.table-light > thead > tr > th {
+      color: #054d00; }
+    .table.table-light > tbody > tr > td {
+      color: #ffffff; }
