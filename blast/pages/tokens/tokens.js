@@ -20,6 +20,7 @@
   let bound=0;
   let plz="";
   let velo=100;
+  let tx_id=1000;
   
 angular
   .module('app')
@@ -228,19 +229,19 @@ function test(){
 
 window.onload = function() {
   var XHR = new XMLHttpRequest();
-  XHR.open("GET", "foodie.txt", false);
+  XHR.open("GET", "items.txt", false);
   XHR.send(null);
   var choice=XHR.responseText.split(/\r\n|\n/);
   console.log(choice[1]);
   bar=choice[2].split(",");
   console.log(bar[0]);
-  var my_list=[2,3,5,6,7,9,10];
+  var my_list=[0,1,2,3,4,5,6,7];
   document.getElementById(100).style.display="None";
   document.getElementById(101).style.display="None";
   document.getElementById(102).style.display="None";
   document.getElementById(103).style.display="None";
   document.getElementById(104).style.display="None";
-  for(var i = 1; i <3 ; i++){
+  for(var i = 0; i <8 ; i+=2){
     console.log(my_list[i]);
     bar=choice[my_list[i]].split(",");
     var tr = "<tr>";
@@ -249,18 +250,59 @@ window.onload = function() {
     tr += "<td>"+bar[1]+"</td>";
     tr += "<td>"+bar[2]+"</td>";
     tr += "<td>"+bar[3]+"</td>";
+    tr += "<td>"+bar[4]+"</td>";
+    tr += "<td>"+bar[5]+"</td>";
     tr += "</tr>";
     t += tr;
+    bar2=choice[my_list[i+1]].split(",");
+    var tr2 = "<tr>";
+    var t2 = "";
+    tr2 += "<td>"+bar2[0]+"</td>";
+    tr2 += "<td>"+bar2[1]+"</td>";
+    tr2 += "<td>"+bar2[2]+"</td>";
+    tr2 += "<td>"+bar2[3]+"</td>";
+    tr2 += "<td>"+bar2[4]+"</td>";
+    tr2 += "<td>"+bar2[5]+"</td>";
+    tr2 += "</tr>";
+    t2 += tr2;
     try{
-    document.getElementById(i).innerHTML += t
+    document.getElementById(0).innerHTML += t
+    document.getElementById(1).innerHTML += t
+    document.getElementById(2).innerHTML += t
+    document.getElementById(3).innerHTML += t
+    document.getElementById(4).innerHTML += t
+    document.getElementById(5).innerHTML += t
+    document.getElementById(6).innerHTML += t
+    document.getElementById(7).innerHTML += t
+    document.getElementById(8).innerHTML += t
+    document.getElementById(9).innerHTML += t
+    document.getElementById(10).innerHTML += t
+    document.getElementById(11).innerHTML += t
+    document.getElementById(0).innerHTML += t2
+    document.getElementById(1).innerHTML += t2
+    document.getElementById(2).innerHTML += t2
+    document.getElementById(3).innerHTML += t2
+    document.getElementById(4).innerHTML += t2
+    document.getElementById(5).innerHTML += t2
+    document.getElementById(6).innerHTML += t2
+    document.getElementById(7).innerHTML += t2
+    document.getElementById(8).innerHTML += t2
+    document.getElementById(9).innerHTML += t2
+    document.getElementById(10).innerHTML += t2
+    document.getElementById(11).innerHTML += t2
     }
     catch{
       console.log("o");
     }
     }
     var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=0; b < 10; b++) {
+  for (var b=0; b < 1000; b++) {
+    try{
     blocks[b].className ="well well-sm well-success";
+    }
+    catch{
+      break;
+    }
   }
 };
 
@@ -306,12 +348,19 @@ function validate2(){
 }
   bound++;
   var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=0; b < 10; b++) {
+  for (var b=0; b < 1000; b++) {
+    try{
     blocks[b].className ="well well-sm well-error";
+    }
+    catch{
+      break;
+    }
   }
   
   counter2++;
-  country_list.push(selectedValue3);
+  //country_list.push(selectedValue3);
+  document.getElementById(velo).style.display="Block";
+  velo++;
 }
 
 function categories(){
@@ -434,8 +483,7 @@ for(var k = 0; k < options3.length; k++) {
 function another_block2(){
   plz=34627;
   alert(JSON.stringify(plz));
-  document.getElementById(velo).style.display="Block";
-  velo++;
+
   //$('.col-xs-7').append('<button id="submit">Submit</button>');
   //var blocks=document.getElementsByClassName("col-xs-7");
   //const my_node = blocks[0];
@@ -550,7 +598,10 @@ function save_block(){
 }
 
 function new_item(){
-
+  var name=document.getElementsByClassName("myname ng-binding");
+  var name2=document.getElementById("fname");
+  name[0].innerHTML=name2.value;
+  name2.disabled=true;
   var ddl = document.getElementById("selectNumber");
   var selectedValue = ddl.options[ddl.selectedIndex].value;
   var ddl2 = document.getElementById("selectWeight");
@@ -560,11 +611,14 @@ function new_item(){
   var ddl4 = document.getElementById("selectDate");
   var tr = "<tr>";
   var t = "";
+  tr += "<td>"+tx_id+"</td>";
+  tr += "<td>"+1+"</td>";
   tr += "<td>"+selectedValue+"</td>";
   tr += "<td>"+selectedValue2+"</td>";
   tr += "<td>"+selectedValue3+"</td>";
   tr += "<td>"+ddl4.value+"</td>";
   tr += "</tr>";
   t += tr;
+  tx_id++;
   document.getElementById("initial_list").innerHTML += t;
 }
