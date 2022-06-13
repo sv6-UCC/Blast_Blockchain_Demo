@@ -20,7 +20,9 @@
   let bound=0;
   let plz="";
   let velo=100;
-  let tx_id=1000;
+  let tx_id=1008;
+  let counter3=1;
+  let jumbo=0;
   
 angular
   .module('app')
@@ -134,35 +136,40 @@ for(var k = 0; k < options3.length; k++) {
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: 100,
-      nonce: 83838,
+      number: "-",
+      changer:100,
+      nonce: 23802,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
     },{
-      number: 101,
-      nonce: 83838,
-      data: {
-        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
-      },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
-    },{
-      number: 102,
-      nonce: 83838,
+      number: "-",
+      changer:101,
+      nonce: 39482,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: 103,
-      nonce: 83838,
+      number: "-",
+      changer:102,
+      nonce: 49022,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: 104,
-      nonce: 83838,
+      number: "-",
+      changer:103,
+      nonce: 62556,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: "-",
+      changer:104,
+      nonce: 29101,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
@@ -171,20 +178,20 @@ for(var k = 0; k < options3.length; k++) {
   }, {
     name: 'Ben',
     blocks: [ {
-      number: '2022-04-12',
+      number: '2022-04-02',
       nonce: 38383,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: '2022-04-19',
+      number: '2022-04-10',
       nonce: 39483,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
     },{
-      number: '2022-04-26',
+      number: '2022-04-13',
       nonce: 78933,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
@@ -193,21 +200,21 @@ for(var k = 0; k < options3.length; k++) {
   }, {
     name: 'Ciara',
     blocks: [{
-      number: '2022-03-08',
+      number: '2022-04-19',
       nonce: 47384,
       data: {
         //txs: [{to:'11/5',value: 200, from: 'Brazil', number: 'coffee'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: '2022-03-15',
+      number: '2022-04-24',
       nonce: 40850,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: '2022-03-22',
+      number: '2022-04-27',
       nonce: 34805,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
@@ -228,6 +235,18 @@ function test(){
 }
 
 window.onload = function() {
+  var chart_data = [{
+    values: [50, 12.5, 37.5],
+    labels: ['China', 'India', 'Brazil'],
+    type: 'pie'
+  }];
+  
+  var layout = {
+    height: 400,
+    width: 500
+  };
+  
+  Plotly.newPlot('myDiv', chart_data, layout);
   var XHR = new XMLHttpRequest();
   XHR.open("GET", "items.txt", false);
   XHR.send(null);
@@ -307,30 +326,23 @@ window.onload = function() {
 };
 
 function validate2(){
-  var chart_data = [{
-    values: [50, 25, 25],
-    labels: ['China', 'India', 'Brazil'],
-    type: 'pie'
-  }];
-  
-  var layout = {
-    height: 400,
-    width: 500
-  };
-  
-  Plotly.newPlot('myDiv', chart_data, layout);
   var elements=document.getElementsByClassName("jail ng-scope");
   for(var i = 0; i < elements.length; i++){
     elements[i].style.display="Block";
   }
   var ddl4 = document.getElementById("selectDate");
   var real_date=ddl4.value;
-  var my_input=document.getElementById("block0number");
+  var aa="block";
+  var bb=jumbo.toString();
+  var cc="number"
+  var dd=aa+bb+cc;
+  var my_input=document.getElementById(dd);
   my_input.value=real_date;
+  jumbo++;
   var old_List=document.getElementById("initial_list").innerHTML;
   if (bound<10000){
     let v=document.getElementsByClassName("trades")
-    for (var b=1; b < 10000; b++) {
+    for (var b=counter3; b < 13; b++) {
       try{
       v[b].innerHTML += old_List;
     }
@@ -346,9 +358,10 @@ function validate2(){
   document.getElementById(counter+2).innerHTML += old_List;
   document.getElementById("initial_list").innerHTML="";
 }
+  
   bound++;
   var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=0; b < 1000; b++) {
+  for (var b=counter2; b < 1000; b++) {
     try{
     blocks[b].className ="well well-sm well-error";
     }
@@ -357,6 +370,7 @@ function validate2(){
     }
   }
   
+  counter3++;
   counter2++;
   //country_list.push(selectedValue3);
   document.getElementById(velo).style.display="Block";

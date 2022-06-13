@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href=https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css>
 
-<h1>Food Waste</h1>
+<h1>Food Waste Blockchain</h1>
 <table class="trades" id="initial_list" style="width:30%"></table>
 <select onchange="categories()"id="selectCat">
     <option>Choose a category</option>
@@ -35,7 +35,7 @@
     </h3>
     <div class="row row-horizon">
         <div class="col-xs-7" ng-repeat="block in peer.blocks">
-            <block id="{{block.number}}"
+            <block id="{{block.changer}}"
                    number="block.number"
                    nonce="block.nonce"
                    hash="block.hash"
@@ -45,4 +45,5 @@
         </div>
     </div>
 </div>
+<h3>Location of Food Items</h3>
 <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
