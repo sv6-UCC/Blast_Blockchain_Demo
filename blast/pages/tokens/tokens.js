@@ -17,6 +17,9 @@
   let weight_list=[];
   let location_list=[];
   let date_list=[];
+  let bound=0;
+  let plz="";
+  let velo=100;
   
 angular
   .module('app')
@@ -124,7 +127,41 @@ for(var k = 0; k < options3.length; k++) {
     name: 'Your Initial Block',
     blocks: [{
       number: my_date,
-      nonce: 3770,
+      nonce: 83838,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: 100,
+      nonce: 83838,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+    },{
+      number: 101,
+      nonce: 83838,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: 102,
+      nonce: 83838,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: 103,
+      nonce: 83838,
+      data: {
+        //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: 104,
+      nonce: 83838,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
@@ -134,25 +171,52 @@ for(var k = 0; k < options3.length; k++) {
     name: 'Ben',
     blocks: [ {
       number: '2022-04-12',
-      nonce: 77097,
+      nonce: 38383,
+      data: {
+       // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: '2022-04-19',
+      nonce: 39483,
+      data: {
+       // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
+      },
+    },{
+      number: '2022-04-26',
+      nonce: 78933,
+      data: {
+       // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
+      },
+    }]
+  }, {
+    name: 'Ciara',
+    blocks: [{
+      number: '2022-03-08',
+      nonce: 47384,
+      data: {
+        //txs: [{to:'11/5',value: 200, from: 'Brazil', number: 'coffee'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: '2022-03-15',
+      nonce: 40850,
+      data: {
+       // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
+      },
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+    },{
+      number: '2022-03-22',
+      nonce: 34805,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     }]
-  }, {
-    name: 'Ciara',
-    blocks: [{
-      number: '2022-04-20',
-      nonce: 22718,
-      data: {
-        //txs: [{to:'11/5',value: 200, from: 'Brazil', number: 'coffee'}]
-      },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
-    }]
   }];
+  plz=vm.peers[0].blocks[0].nonce;
   console.log("look here");
-  console.log(JSON.stringify(vm.peers));
+  console.log(JSON.stringify(vm.peers.blocks));
 }
 
 function test(){
@@ -171,6 +235,11 @@ window.onload = function() {
   bar=choice[2].split(",");
   console.log(bar[0]);
   var my_list=[2,3,5,6,7,9,10];
+  document.getElementById(100).style.display="None";
+  document.getElementById(101).style.display="None";
+  document.getElementById(102).style.display="None";
+  document.getElementById(103).style.display="None";
+  document.getElementById(104).style.display="None";
   for(var i = 1; i <3 ; i++){
     console.log(my_list[i]);
     bar=choice[my_list[i]].split(",");
@@ -182,49 +251,20 @@ window.onload = function() {
     tr += "<td>"+bar[3]+"</td>";
     tr += "</tr>";
     t += tr;
+    try{
     document.getElementById(i).innerHTML += t
     }
+    catch{
+      console.log("o");
+    }
+    }
+    var blocks=document.getElementsByClassName("well well-sm");
+  for (var b=0; b < 10; b++) {
+    blocks[b].className ="well well-sm well-success";
+  }
 };
 
 function validate2(){
-  if (counter2==0){
-    let els = document.querySelectorAll('.trades');
-    var XHR = new XMLHttpRequest();
-    XHR.open("GET", "foodie.txt", false);
-    XHR.send(null);
-    var choice=XHR.responseText.split(/\r\n|\n/);
-    console.log(choice[1]);
-    bar=choice[2].split(",");
-    console.log(bar[0]);
-  /*els.forEach(function(el) {
-    var el2 = document.createElement("h1");
-    el2.textContent = "hey";
-    el2.value = "hey";
-    el.appendChild(el2);
-  });*/
-  
-    var ddl = document.getElementById("selectNumber");
-    var selectedValue = ddl.options[ddl.selectedIndex].value;
-    var ddl2 = document.getElementById("selectWeight");
-    var selectedValue2 = ddl2.options[ddl2.selectedIndex].value;
-    var ddl3 = document.getElementById("selectLocation");
-    var selectedValue3 = ddl3.options[ddl3.selectedIndex].value;
-    var my_list=[2,3,5,6,7,9,10];
-    for(var i = 1; i <3 ; i++){
-      console.log(my_list[i]);
-      bar=choice[my_list[i]].split(",");
-      var tr = "<tr>";
-      var t = "";
-      tr += "<td>"+bar[0]+"</td>";
-      tr += "<td>"+bar[1]+"</td>";
-      tr += "<td>"+bar[2]+"</td>";
-      tr += "<td>"+bar[3]+"</td>";
-      tr += "</tr>";
-      t += tr;
-      document.getElementById(i).innerHTML += t
-      }
-
-  }
   var chart_data = [{
     values: [50, 25, 25],
     labels: ['China', 'India', 'Brazil'],
@@ -241,11 +281,35 @@ function validate2(){
   for(var i = 0; i < elements.length; i++){
     elements[i].style.display="Block";
   }
+  var ddl4 = document.getElementById("selectDate");
+  var real_date=ddl4.value;
+  var my_input=document.getElementById("block0number");
+  my_input.value=real_date;
   var old_List=document.getElementById("initial_list").innerHTML;
+  if (bound<10000){
+    let v=document.getElementsByClassName("trades")
+    for (var b=1; b < 10000; b++) {
+      try{
+      v[b].innerHTML += old_List;
+    }
+    catch{
+      break
+    }
+    }
+    document.getElementById("initial_list").innerHTML="";
+  }
+  else{
   document.getElementById(counter).innerHTML += old_List;
   document.getElementById(counter+1).innerHTML += old_List;
   document.getElementById(counter+2).innerHTML += old_List;
   document.getElementById("initial_list").innerHTML="";
+}
+  bound++;
+  var blocks=document.getElementsByClassName("well well-sm");
+  for (var b=0; b < 10; b++) {
+    blocks[b].className ="well well-sm well-error";
+  }
+  
   counter2++;
   country_list.push(selectedValue3);
 }
@@ -364,6 +428,21 @@ for(var k = 0; k < options3.length; k++) {
 }
 
   //var options = ["potatoes", "carrots", "peas", "turnip", "beans"];
+
+}
+
+function another_block2(){
+  plz=34627;
+  alert(JSON.stringify(plz));
+  document.getElementById(velo).style.display="Block";
+  velo++;
+  //$('.col-xs-7').append('<button id="submit">Submit</button>');
+  //var blocks=document.getElementsByClassName("col-xs-7");
+  //const my_node = blocks[0];
+  //const clone = my_node.cloneNode(true);
+  //var block=document.getElementsByClassName("row row-horizon");
+  //var block_content=block[0];
+  //block_content.prepend(clone);
 
 }
 

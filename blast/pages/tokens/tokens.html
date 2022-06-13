@@ -27,8 +27,7 @@
 <input type="date" id="selectDate" name="selectDate">
 <button onclick="new_item()">Enter Item</button>
 <button onclick="validate2()">Finish List</button>
-<button onclick="another_block()">More Blocks!</button>
-<button onclick="save_block()">Save</button>
+<button onclick="another_block2()">More Blocks!</button>
 
 </table>
 <div class="jail" ng-repeat="peer in vm.peers">
@@ -37,7 +36,7 @@
     </h3>
     <div class="row row-horizon">
         <div class="col-xs-7" ng-repeat="block in peer.blocks">
-            <block id="{{peer.name}}"
+            <block id="{{block.number}}"
                    number="block.number"
                    nonce="block.nonce"
                    hash="block.hash"
