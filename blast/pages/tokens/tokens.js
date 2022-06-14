@@ -260,7 +260,9 @@ window.onload = function() {
   document.getElementById(102).style.display="None";
   document.getElementById(103).style.display="None";
   document.getElementById(104).style.display="None";
-  for(var i = 0; i <8 ; i+=2){
+  var blast=6;
+  for(var i = 0; i <8 ; i+=1){
+    try{
     console.log(my_list[i]);
     bar=choice[my_list[i]].split(",");
     var tr = "<tr>";
@@ -273,46 +275,29 @@ window.onload = function() {
     tr += "<td>"+bar[5]+"</td>";
     tr += "</tr>";
     t += tr;
-    bar2=choice[my_list[i+1]].split(",");
+    //bar2=choice[my_list[i+1]].split(",");
     var tr2 = "<tr>";
     var t2 = "";
-    tr2 += "<td>"+bar2[0]+"</td>";
-    tr2 += "<td>"+bar2[1]+"</td>";
-    tr2 += "<td>"+bar2[2]+"</td>";
-    tr2 += "<td>"+bar2[3]+"</td>";
-    tr2 += "<td>"+bar2[4]+"</td>";
-    tr2 += "<td>"+bar2[5]+"</td>";
+    tr2 += "<td>"+bar[6]+"</td>";
+    tr2 += "<td>"+bar[7]+"</td>";
+    tr2 += "<td>"+bar[8]+"</td>";
+    tr2 += "<td>"+bar[9]+"</td>";
+    tr2 += "<td>"+bar[10]+"</td>";
+    tr2 += "<td>"+bar[11]+"</td>";
     tr2 += "</tr>";
     t2 += tr2;
     try{
-    document.getElementById(0).innerHTML += t
-    document.getElementById(1).innerHTML += t
-    document.getElementById(2).innerHTML += t
-    document.getElementById(3).innerHTML += t
-    document.getElementById(4).innerHTML += t
-    document.getElementById(5).innerHTML += t
-    document.getElementById(6).innerHTML += t
-    document.getElementById(7).innerHTML += t
-    document.getElementById(8).innerHTML += t
-    document.getElementById(9).innerHTML += t
-    document.getElementById(10).innerHTML += t
-    document.getElementById(11).innerHTML += t
-    document.getElementById(0).innerHTML += t2
-    document.getElementById(1).innerHTML += t2
-    document.getElementById(2).innerHTML += t2
-    document.getElementById(3).innerHTML += t2
-    document.getElementById(4).innerHTML += t2
-    document.getElementById(5).innerHTML += t2
-    document.getElementById(6).innerHTML += t2
-    document.getElementById(7).innerHTML += t2
-    document.getElementById(8).innerHTML += t2
-    document.getElementById(9).innerHTML += t2
-    document.getElementById(10).innerHTML += t2
-    document.getElementById(11).innerHTML += t2
+    document.getElementById(blast).innerHTML += t
+    document.getElementById(blast).innerHTML += t2
+    blast++;
     }
     catch{
       console.log("o");
     }
+  }
+  catch{
+    break;
+  }
     }
     var blocks=document.getElementsByClassName("well well-sm");
   for (var b=0; b < 1000; b++) {
@@ -345,6 +330,7 @@ function validate2(){
     for (var b=counter3; b < 13; b++) {
       try{
       v[b].innerHTML += old_List;
+      break;
     }
     catch{
       break
@@ -364,6 +350,7 @@ function validate2(){
   for (var b=counter2; b < 1000; b++) {
     try{
     blocks[b].className ="well well-sm well-error";
+    break
     }
     catch{
       break;
