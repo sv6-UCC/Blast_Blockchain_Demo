@@ -20,7 +20,7 @@
   let bound=0;
   let plz="";
   let velo=100;
-  let tx_id=1008;
+  let tx_id=1012;
   let counter3=1;
   let jumbo=0;
   
@@ -79,6 +79,23 @@ for(var i = 0; i < options0.length; i++) {
     el0.value = opt0;
     try{
       select0.appendChild(el0);
+    }
+    catch{
+      break
+    }
+    
+}
+
+var select1 = document.getElementById("selectNumber");
+var options1 = ["Cod","Salmon","Haddock","Hake"];
+
+for(var h = 0; h < options1.length; h++) {
+    var opt1 = options1[h];
+    var el1 = document.createElement("option");
+    el1.textContent = opt1;
+    el1.value = opt1;
+    try{
+      select1.appendChild(el1);
     }
     catch{
       break
@@ -212,14 +229,14 @@ for(var k = 0; k < options3.length; k++) {
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+      
     },{
       number: '2022-04-27',
       nonce: 34805,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
+      
     }]
   }];
   plz=vm.peers[0].blocks[0].nonce;
@@ -300,7 +317,7 @@ window.onload = function() {
   }
     }
     var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=0; b < 1000; b++) {
+  for (var b=0; b < 5; b++) {
     try{
     blocks[b].className ="well well-sm well-success";
     }
@@ -433,7 +450,7 @@ for(var i = 0; i < options0.length; i++) {
 }
 
 
-var options2 = ["100g", "200g", "400g", "800g", "1000g"];
+var options2 = ["25 ton", "50 ton", "100 ton", "200 ton"];
 
 var i, L = select2.options.length - 1;
    for(i = L; i >= 0; i--) {
@@ -455,7 +472,7 @@ for(var j = 0; j < options2.length; j++) {
 }
 
 
-var options3 = ["China", "India", "Brazil", "South Africa", "Austrailia"];
+var options3 = ["England", "Wales", "France", "Spain"];
 
 var j, K = select2.options.length - 1;
    for(j = K; j >= 0; j--) {
