@@ -1,6 +1,6 @@
 
 
-<div class="well well-sm" ng-class="{'well-success': vm.valid, 'well-error': !vm.valid}">
+<div class="well well-sm" id="bing"ng-class="{'well-success': vm.valid, 'well-error': !vm.valid}">
     <form class="form-horizontal">
         <!-- Block number -->
         <div class="form-group">
@@ -10,7 +10,7 @@
                     <input id="block{{vm.id}}number"
                            ng-model="vm.number"
                            ng-change="vm.updateBlock()"
-                           class="form-control"disabled>
+                           class="form-control">
                 </div>
             </div>
         </div>
@@ -24,7 +24,8 @@
                 <input id="block{{vm.id}}nonce"
                         ng-model="vm.nonce"
                         ng-change="vm.updateBlock()"
-                        class="form-control"disabled>
+                        ng-readonly="true"
+                        class="form-control">
             </div>
         </div>
 
@@ -34,8 +35,10 @@
             <thead>
                 <caption>Products</caption>
                 <tr>
-                    <th>Item</th>
-                    <th>Weight</th>
+                    <th>Transaction ID</th>
+                    <th>User ID</th>
+                    <th>Fish Type</th>
+                    <th>Tonnage</th>
                     <th>Location</th>
                     <th>Date</th>
                 </tr>
