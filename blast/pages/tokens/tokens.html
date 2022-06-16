@@ -10,16 +10,19 @@
 
 <h1>Fishery Blockchain</h1>
 <table class="trades" id="initial_list" style="width:30%"></table>
+<select onchange="categories()"id="selectCat">
+    <option>Choose a country</option>
+</select>
 <select id="selectNumber">
-    <option>Choose an item</option>
+    <option>Choose a port</option>
 </select>
 <select id="selectWeight">
     <option>Choose weight</option>
 </select>
 <select id="selectLocation">
-    <option>Choose location</option>
+    <option>Choose fish type</option>
 </select>
-<label for="fname">Type Name:</label>
+<label for="fname">Type boat name:</label>
 <input type="text" id="fname" name="fname">
 <input type="date" id="selectDate" name="selectDate">
 <button onclick="new_item()">Enter Item</button>
@@ -42,5 +45,5 @@
         </div>
     </div>
 </div>
-<h3>Location of Food Items</h3>
+<h3>Percentage of Fish Caught</h3>
 <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>

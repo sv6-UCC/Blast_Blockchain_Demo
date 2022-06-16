@@ -86,25 +86,8 @@ for(var i = 0; i < options0.length; i++) {
     
 }
 
-var select1 = document.getElementById("selectNumber");
-var options1 = ["Cod","Salmon","Haddock","Hake"];
 
-for(var h = 0; h < options1.length; h++) {
-    var opt1 = options1[h];
-    var el1 = document.createElement("option");
-    el1.textContent = opt1;
-    el1.value = opt1;
-    try{
-      select1.appendChild(el1);
-    }
-    catch{
-      break
-    }
-    
-}
-
-
-var options2 = ["100g", "200g", "400g", "800g", "1000g"];
+var options2 = ["25 ton", "50 ton", "100 ton", "200 ton", "500 ton"];
 
 for(var j = 0; j < options2.length; j++) {
     var opt2 = options2[j];
@@ -121,7 +104,7 @@ for(var j = 0; j < options2.length; j++) {
 }
 
 
-var options3 = ["China", "India", "Brazil", "Austrailia"];
+var options3 = ["Cod", "Salmon", "Mackerel", "Pike"];
 
 for(var k = 0; k < options3.length; k++) {
     var opt3 = options3[k];
@@ -193,50 +176,50 @@ for(var k = 0; k < options3.length; k++) {
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     }]
   }, {
-    name: 'Ben',
+    name: 'Atlantic Dawn',
     blocks: [ {
-      number: '2022-04-02',
-      nonce: 38383,
+      number: '2022-01-02',
+      nonce: 134620,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: '2022-04-10',
-      nonce: 39483,
+      number: '2022-02-10',
+      nonce: 73613,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
     },{
-      number: '2022-04-13',
-      nonce: 78933,
+      number: '2022-03-13',
+      nonce: 64690,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
     }]
   }, {
-    name: 'Ciara',
+    name: 'Leila Ship',
     blocks: [{
-      number: '2022-04-19',
-      nonce: 47384,
+      number: '2022-02-19',
+      nonce: 144637,
       data: {
         //txs: [{to:'11/5',value: 200, from: 'Brazil', number: 'coffee'}]
       },
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
-      number: '2022-04-24',
-      nonce: 40850,
+      number: '2022-03-24',
+      nonce: 41810,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: '2022-04-27',
-      nonce: 34805,
+      nonce: 63286,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      
+      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     }]
   }];
   plz=vm.peers[0].blocks[0].nonce;
@@ -253,8 +236,8 @@ function test(){
 
 window.onload = function() {
   var chart_data = [{
-    values: [50, 12.5, 37.5],
-    labels: ['China', 'India', 'Brazil'],
+    values: [50, 25, 25],
+    labels: ['Pike', 'Cod', 'Salmon'],
     type: 'pie'
   }];
   
@@ -350,7 +333,7 @@ function validate2(){
       break;
     }
     catch{
-      break
+      break;
     }
     }
     document.getElementById("initial_list").innerHTML="";
@@ -364,10 +347,9 @@ function validate2(){
   
   bound++;
   var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=counter2; b < 1000; b++) {
+  for (var b=counter2; b < 5; b++) {
     try{
     blocks[b].className ="well well-sm well-error";
-    break
     }
     catch{
       break;
@@ -386,16 +368,16 @@ function categories(){
   var x = document.getElementById("selectCat").value;
   selectedValue=x;
   //var selectedValue = ddl.options[ddl.selectedIndex].value;
-  if(selectedValue=="Vegetables"){
+  if(selectedValue=="Ireland"){
     options=veg;
   }
-  if(selectedValue=="Condiments"){
+  if(selectedValue=="Portugal"){
     options=con;
   }
-  if(selectedValue=="Fruits"){
+  if(selectedValue=="Turkey"){
     options=fru;
   }
-  if(selectedValue=="Snacks"){
+  if(selectedValue=="Netherlands"){
     options=sna;
   }
 
@@ -450,7 +432,7 @@ for(var i = 0; i < options0.length; i++) {
 }
 
 
-var options2 = ["25 ton", "50 ton", "100 ton", "200 ton"];
+var options2 = ["25 ton", "50 ton", "100 ton", "200 ton", "500 ton"];
 
 var i, L = select2.options.length - 1;
    for(i = L; i >= 0; i--) {
@@ -472,7 +454,7 @@ for(var j = 0; j < options2.length; j++) {
 }
 
 
-var options3 = ["England", "Wales", "France", "Spain"];
+var options3 = ["Cod", "Salmon", "Mackerel", "Pike"];
 
 var j, K = select2.options.length - 1;
    for(j = K; j >= 0; j--) {
@@ -630,7 +612,7 @@ function new_item(){
   var tr = "<tr>";
   var t = "";
   tr += "<td>"+tx_id+"</td>";
-  tr += "<td>"+1+"</td>";
+  tr += "<td>"+name2.value+"</td>";
   tr += "<td>"+selectedValue+"</td>";
   tr += "<td>"+selectedValue2+"</td>";
   tr += "<td>"+selectedValue3+"</td>";
