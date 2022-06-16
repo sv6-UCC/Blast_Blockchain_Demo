@@ -130,7 +130,7 @@ for(var k = 0; k < options3.length; k++) {
     name: 'Your Initial Block',
     blocks: [{
       number: my_date,
-      nonce: 83838,
+      nonce: 5569,
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
@@ -208,18 +208,16 @@ for(var k = 0; k < options3.length; k++) {
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: '2022-03-24',
-      nonce: 41810,
+      nonce: 160593,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: '2022-04-27',
-      nonce: 63286,
+      nonce: 94803,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     }]
   }];
   plz=vm.peers[0].blocks[0].nonce;
@@ -299,13 +297,13 @@ window.onload = function() {
     break;
   }
     }
-    var blocks=document.getElementsByClassName("well well-sm");
+   var blocks=document.getElementsByClassName("well well-sm");
   for (var b=0; b < 5; b++) {
-    try{
-    blocks[b].className ="well well-sm well-success";
-    }
+   try{
+   blocks[b].className ="well well-sm well-success";
+   }
     catch{
-      break;
+    break;
     }
   }
 };
