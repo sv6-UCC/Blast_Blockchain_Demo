@@ -10,6 +10,7 @@
                     <input id="block{{vm.id}}number"
                            ng-model="vm.number"
                            ng-change="vm.updateBlock()"
+                           ng-readonly="true"
                            class="form-control">
                 </div>
             </div>
@@ -33,13 +34,13 @@
         
         <table class="trades" id="{{vm.id}}" style="width:100%">
             <thead>
-                <caption>Products</caption>
+                <caption>Information</caption>
                 <tr>
-                    <th>Transaction ID</th>
-                    <th>User ID</th>
-                    <th>Fish Type</th>
+                    <th>Tx ID</th>
+                    <th>Boat Name</th>
+                    <th>Port</th>
                     <th>Tonnage</th>
-                    <th>Location</th>
+                    <th>Fish Type</th>
                     <th>Date</th>
                 </tr>
             </thead>
