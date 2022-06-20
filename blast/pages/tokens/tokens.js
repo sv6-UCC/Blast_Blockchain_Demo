@@ -9,10 +9,10 @@
   let changes=1;
   let options="";
   let country_list=[];
-  let china=0;
-  let india=0;
-  let brazil=0;
-  let australia=0;
+  let salmon=0;
+  let pike=0;
+  let cod=0;
+  let mackeral=0;
   let item_list=[];
   let weight_list=[];
   let location_list=[];
@@ -233,18 +233,6 @@ function test(){
 }
 
 window.onload = function() {
-  var chart_data = [{
-    values: [50, 25, 25],
-    labels: ['Pike', 'Cod', 'Salmon'],
-    type: 'pie'
-  }];
-  
-  var layout = {
-    height: 400,
-    width: 500
-  };
-  
-  Plotly.newPlot('myDiv', chart_data, layout);
   var XHR = new XMLHttpRequest();
   XHR.open("GET", "items.txt", false);
   XHR.send(null);
@@ -263,6 +251,31 @@ window.onload = function() {
     try{
     console.log(my_list[i]);
     bar=choice[my_list[i]].split(",");
+    console.log("wee");
+    if(bar[4]=="Salmon"){
+      salmon+=1;
+    }
+    if(bar[4]=="Pike"){
+      pike+=1;
+    }
+    if(bar[4]=="Cod"){
+      cod+=1;
+    }
+    if(bar[4]=="Mackeral"){
+      mackeral+=1;
+    }
+    if(bar[10]=="Salmon"){
+      salmon+=1;
+    }
+    if(bar[10]=="Pike"){
+      pike+=1;
+    }
+    if(bar[10]=="Cod"){
+      cod+=1;
+    }
+    if(bar[10]=="Mackeral"){
+      mackeral+=1;
+    }
     var tr = "<tr>";
     var t = "";
     tr += "<td>"+bar[0]+"</td>";
@@ -306,6 +319,26 @@ window.onload = function() {
     break;
     }
   }
+  var total=pike+salmon+cod+mackeral;
+  console.log("rrrrrrrrrrrrrrrrrrr")
+  console.log(total);
+  pike2=(pike/total)*100;
+  salmon2=(salmon/total)*100;
+  cod2=(cod/total)*100;
+  mackeral2=(mackeral/total)*100;
+ 
+   var chart_data = [{
+     values: [pike2, cod2, salmon2,mackeral2],
+     labels: ['Pike', 'Cod', 'Salmon','Mackeral'],
+     type: 'pie'
+   }];
+   
+   var layout = {
+     height: 400,
+     width: 500
+   };
+   
+   Plotly.newPlot('myDiv', chart_data, layout);
 };
 
 function validate2(){
@@ -348,6 +381,7 @@ function validate2(){
   for (var b=counter2; b < 5; b++) {
     try{
     blocks[b].className ="well well-sm well-error";
+    break;
     }
     catch{
       break;
@@ -606,6 +640,19 @@ function new_item(){
   var selectedValue2 = ddl2.options[ddl2.selectedIndex].value;
   var ddl3 = document.getElementById("selectLocation");
   var selectedValue3 = ddl3.options[ddl3.selectedIndex].value;
+  if(selectedValue3=="Salmon"){
+    salmon+=1;
+  }
+  if(selectedValue3=="Pike"){
+    pike+=1;
+  }
+  if(selectedValue3=="Cod"){
+    cod+=1;
+  }
+  if(selectedValue3=="Mackerel"){
+    console.log("yeeee");
+    mackeral+=1;
+  }
   var ddl4 = document.getElementById("selectDate");
   var tr = "<tr>";
   var t = "";
@@ -619,4 +666,24 @@ function new_item(){
   t += tr;
   tx_id++;
   document.getElementById("initial_list").innerHTML += t;
+  var total=pike+salmon+cod+mackeral;
+  console.log("rrrrrrrrrrrrrrrrrrr")
+  console.log(total);
+  pike2=(pike/total)*100;
+  salmon2=(salmon/total)*100;
+  cod2=(cod/total)*100;
+  mackeral2=(mackeral/total)*100;
+ 
+   var chart_data = [{
+     values: [pike2, cod2, salmon2,mackeral2],
+     labels: ['Pike', 'Cod', 'Salmon','Mackeral'],
+     type: 'pie'
+   }];
+   
+   var layout = {
+     height: 400,
+     width: 500
+   };
+   
+   Plotly.newPlot('myDiv', chart_data, layout);
 }
