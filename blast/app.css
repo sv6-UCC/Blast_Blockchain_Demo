@@ -48,6 +48,16 @@ block .well-sm {
     right:0;
 
 }
+.myline{
+position:relative;
+margin-top:-17px;
+height:5px;
+z-index:-1
+}
+.col-xs-7{
+display:inline;
+padding-right:20px
+}
 
 .well-success {
     transition: background 0.6s;
