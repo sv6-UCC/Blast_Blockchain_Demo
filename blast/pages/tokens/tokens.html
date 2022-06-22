@@ -34,7 +34,7 @@
         <peer-info ng-if="$root.expertMode" peers="vm.peers" peer-index="$index"></peer-info>
     </h3>
     <div class="row row-horizon">
-        <div class="col-xs-7" ng-repeat="block in peer.blocks">
+        <div class="col-xs-7 tree" ng-repeat="block in peer.blocks">
             <block id="{{block.changer}}"
                    number="block.number"
                    nonce="block.nonce"
@@ -42,6 +42,9 @@
                    valid="block.valid"
                    prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
             </block>
+        <div class="col-xs-7 tree" style="position:absolute; left:-167px; top:150px; overflow: hidden;">
+        <hr class ="liners" style="display: none;"size="6" width="35" color="black">
+        </div>
         </div>
     </div>
 </div>

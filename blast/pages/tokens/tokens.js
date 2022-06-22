@@ -149,7 +149,6 @@ for(var k = 0; k < options3.length; k++) {
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: "-",
       changer:102,
@@ -157,7 +156,6 @@ for(var k = 0; k < options3.length; k++) {
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: "-",
       changer:103,
@@ -165,7 +163,6 @@ for(var k = 0; k < options3.length; k++) {
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: "-",
       changer:104,
@@ -173,7 +170,6 @@ for(var k = 0; k < options3.length; k++) {
       data: {
         //txs: [{number:first,value: second, from: third, to: fourth}, {number:"carrots",value: 80, from: 'China', to: '2/7'}]
       },
-      prev: '0000000000000000000000000000000000000000000000000000000000000000'
     }]
   }, {
     name: 'Atlantic Dawn',
@@ -233,6 +229,7 @@ function test(){
 }
 
 window.onload = function() {
+  
   var XHR = new XMLHttpRequest();
   XHR.open("GET", "items.txt", false);
   XHR.send(null);
@@ -339,6 +336,23 @@ window.onload = function() {
    };
    
    Plotly.newPlot('myDiv', chart_data, layout);
+   var blocks=document.getElementsByClassName("liners");
+   for (var n=7; n < 9; n++) {
+     try{
+     blocks[n].style.display="Block";
+     }
+     catch{
+       break;
+     }
+   }
+   for (var n=10; n < 100; n++) {
+    try{
+    blocks[n].style.display="Block";
+    }
+    catch{
+      break;
+    }
+  }
 };
 
 function validate2(){
@@ -387,6 +401,18 @@ function validate2(){
       break;
     }
   }
+
+  var blocks2=document.getElementsByClassName("liners");
+  for (var n=counter2+1; n < 111; n++) {
+    try{
+    blocks2[n].style.display="Block";
+    break;
+    }
+    catch{
+      break;
+    }
+  }
+
   
   counter3++;
   counter2++;
