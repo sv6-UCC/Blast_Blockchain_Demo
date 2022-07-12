@@ -41,12 +41,43 @@ block .well-sm {
 .panel .panel-body, intro-page {
     line-height: 24px;
 }
+.blank1{
+    display: none;
+}
+
+.blank2{
+    display: none;
+}
+
+.blank3{
+    display: none;
+}
+
+.blank4{
+    display: none;
+}
+
+.blank5{
+    display: none;
+}
 
 #initial_list{
 
     position:absolute;
     right:0;
 
+}
+#but2{
+    display: none;
+}
+#but3{
+    display: none;
+}
+#but4{
+    display: none;
+}
+#but5{
+    display: none;
 }
 .myline{
 position:relative;
