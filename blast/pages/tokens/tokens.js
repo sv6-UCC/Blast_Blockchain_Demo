@@ -129,6 +129,7 @@ for(var k = 0; k < options3.length; k++) {
   vm.peers = [{
     name: 'Your Initial Block',
     blocks: [{
+      changer:23,
       number: my_date,
       nonce: 5569,
       data: {
@@ -175,6 +176,7 @@ for(var k = 0; k < options3.length; k++) {
     name: 'Atlantic Dawn',
     blocks: [ {
       number: '2022-01-02',
+      changer:24,
       nonce: 134620,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
@@ -182,12 +184,14 @@ for(var k = 0; k < options3.length; k++) {
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: '2022-02-10',
+      changer:25,
       nonce: 73613,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
     },{
       number: '2022-03-13',
+      changer:26,
       nonce: 64690,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
@@ -197,6 +201,7 @@ for(var k = 0; k < options3.length; k++) {
     name: 'Leila Ship',
     blocks: [{
       number: '2022-02-19',
+      changer:27,
       nonce: 144637,
       data: {
         //txs: [{to:'11/5',value: 200, from: 'Brazil', number: 'coffee'}]
@@ -204,12 +209,14 @@ for(var k = 0; k < options3.length; k++) {
       prev: '0000000000000000000000000000000000000000000000000000000000000000'
     },{
       number: '2022-03-24',
+      changer:28,
       nonce: 160593,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
       },
     },{
       number: '2022-04-27',
+      changer:29,
       nonce: 94803,
       data: {
        // txs: [{to:'10/5',value: 100, from: 'Columbia', number: 'bananas'}]
@@ -219,6 +226,7 @@ for(var k = 0; k < options3.length; k++) {
   plz=vm.peers[0].blocks[0].nonce;
   console.log("look here");
   console.log(JSON.stringify(vm.peers.blocks));
+  
 }
 
 function test(){
@@ -228,132 +236,6 @@ function test(){
   }
 }
 
-window.onload = function() {
-  
-  var XHR = new XMLHttpRequest();
-  XHR.open("GET", "items.txt", false);
-  XHR.send(null);
-  var choice=XHR.responseText.split(/\r\n|\n/);
-  console.log(choice[1]);
-  bar=choice[2].split(",");
-  console.log(bar[0]);
-  var my_list=[0,1,2,3,4,5,6,7];
-  document.getElementById(100).style.display="None";
-  document.getElementById(101).style.display="None";
-  document.getElementById(102).style.display="None";
-  document.getElementById(103).style.display="None";
-  document.getElementById(104).style.display="None";
-  var blast=6;
-  for(var i = 0; i <8 ; i+=1){
-    try{
-    console.log(my_list[i]);
-    bar=choice[my_list[i]].split(",");
-    console.log("wee");
-    if(bar[4]=="Salmon"){
-      salmon+=1;
-    }
-    if(bar[4]=="Pike"){
-      pike+=1;
-    }
-    if(bar[4]=="Cod"){
-      cod+=1;
-    }
-    if(bar[4]=="Mackeral"){
-      mackeral+=1;
-    }
-    if(bar[10]=="Salmon"){
-      salmon+=1;
-    }
-    if(bar[10]=="Pike"){
-      pike+=1;
-    }
-    if(bar[10]=="Cod"){
-      cod+=1;
-    }
-    if(bar[10]=="Mackeral"){
-      mackeral+=1;
-    }
-    var tr = "<tr>";
-    var t = "";
-    tr += "<td>"+bar[0]+"</td>";
-    tr += "<td>"+bar[1]+"</td>";
-    tr += "<td>"+bar[2]+"</td>";
-    tr += "<td>"+bar[3]+"</td>";
-    tr += "<td>"+bar[4]+"</td>";
-    tr += "<td>"+bar[5]+"</td>";
-    tr += "</tr>";
-    t += tr;
-    //bar2=choice[my_list[i+1]].split(",");
-    var tr2 = "<tr>";
-    var t2 = "";
-    tr2 += "<td>"+bar[6]+"</td>";
-    tr2 += "<td>"+bar[7]+"</td>";
-    tr2 += "<td>"+bar[8]+"</td>";
-    tr2 += "<td>"+bar[9]+"</td>";
-    tr2 += "<td>"+bar[10]+"</td>";
-    tr2 += "<td>"+bar[11]+"</td>";
-    tr2 += "</tr>";
-    t2 += tr2;
-    try{
-    document.getElementById(blast).innerHTML += t
-    document.getElementById(blast).innerHTML += t2
-    blast++;
-    }
-    catch{
-      console.log("o");
-    }
-  }
-  catch{
-    break;
-  }
-    }
-   var blocks=document.getElementsByClassName("well well-sm");
-  for (var b=0; b < 5; b++) {
-   try{
-   blocks[b].className ="well well-sm well-success";
-   }
-    catch{
-    break;
-    }
-  }
-  var total=pike+salmon+cod+mackeral;
-  console.log("rrrrrrrrrrrrrrrrrrr")
-  console.log(total);
-  pike2=(pike/total)*100;
-  salmon2=(salmon/total)*100;
-  cod2=(cod/total)*100;
-  mackeral2=(mackeral/total)*100;
- 
-   var chart_data = [{
-     values: [pike2, cod2, salmon2,mackeral2],
-     labels: ['Pike', 'Cod', 'Salmon','Mackeral'],
-     type: 'pie'
-   }];
-   
-   var layout = {
-     height: 400,
-     width: 500
-   };
-   
-   Plotly.newPlot('myDiv', chart_data, layout);
-   var blocks=document.getElementsByClassName("liners");
-   for (var n=7; n < 9; n++) {
-     try{
-     blocks[n].style.display="Block";
-     }
-     catch{
-       break;
-     }
-   }
-   for (var n=10; n < 100; n++) {
-    try{
-    blocks[n].style.display="Block";
-    }
-    catch{
-      break;
-    }
-  }
-};
 
 function validate2(){
   var elements=document.getElementsByClassName("jail ng-scope");
@@ -369,6 +251,10 @@ function validate2(){
   var my_input=document.getElementById(dd);
   my_input.value=real_date;
   jumbo++;
+  var statement="blank";
+  var new_statement=statement+jumbo.toString();
+  var new_block=document.getElementsByClassName(new_statement);
+  new_block[0].style.display="Block";
   var old_List=document.getElementById("initial_list").innerHTML;
   if (bound<10000){
     let v=document.getElementsByClassName("trades")
@@ -419,23 +305,66 @@ function validate2(){
   //country_list.push(selectedValue3);
   document.getElementById(velo).style.display="Block";
   velo++;
+  var total=pike+salmon+cod+mackeral;
+  console.log("rrrrrrrrrrrrrrrrrrr")
+  console.log(total);
+  pike2=(pike/total)*100;
+  salmon2=(salmon/total)*100;
+  cod2=(cod/total)*100;
+  mackeral2=(mackeral/total)*100;
+ 
+   var chart_data = [{
+     values: [pike2, cod2, salmon2,mackeral2],
+     labels: ['Pike', 'Cod', 'Salmon','Mackeral'],
+     type: 'pie'
+   }];
+   
+   var layout = {
+     height: 400,
+     width: 500
+   };
+   
+   Plotly.newPlot('myDiv', chart_data, layout);
+   var blocks=document.getElementsByClassName("liners");
+   for (var n=7; n < 9; n++) {
+     try{
+     blocks[n].style.display="Block";
+     }
+     catch{
+       break;
+     }
+   }
+   for (var n=10; n < 100; n++) {
+    try{
+    blocks[n].style.display="Block";
+    }
+    catch{
+      break;
+    }
+  }
 }
 
 function categories(){
   //var ddl = document.getElementById("selectCat");
+  var checker=10000
   var x = document.getElementById("selectCat").value;
-  selectedValue=x;
+  //selectedValue=x;
   //var selectedValue = ddl.options[ddl.selectedIndex].value;
-  if(selectedValue=="Ireland"){
+  if(x=="Ireland"){
+    checker=1;
     options=veg;
+    
   }
-  if(selectedValue=="Portugal"){
+  if(x=="Portugal"){
+    checker=2;
     options=con;
   }
-  if(selectedValue=="Turkey"){
+  if(x=="Turkey"){
+    checker=3;
     options=fru;
   }
-  if(selectedValue=="Netherlands"){
+  if(x=="Netherlands"){
+    checker=4;
     options=sna;
   }
 
@@ -472,7 +401,9 @@ var options0 = [veg[0], con[0], fru[0], sna[0]];
 
 var j2, K2 = select0.options.length - 1;
    for(j2 = K2; j2 >= 0; j2--) {
-      select0.remove(j2);
+      if(j2 != checker){
+        select0.remove(j2);
+      }
    }
 
 for(var i = 0; i < options0.length; i++) {
@@ -713,3 +644,88 @@ function new_item(){
    
    Plotly.newPlot('myDiv', chart_data, layout);
 }
+function showIt2() {
+  var XHR = new XMLHttpRequest();
+  XHR.open("GET", "items.txt", false);
+  XHR.send(null);
+  var choice=XHR.responseText.split(/\r\n|\n/);
+  console.log(choice[1]);
+  bar=choice[2].split(",");
+  console.log(bar[0]);
+  var my_list=[0,1,2,3,4,5,6,7];
+  var blast=1;
+  for(var i = 0; i <8 ; i+=1){
+    try{
+    console.log(my_list[i]);
+    bar=choice[my_list[i]].split(",");
+    console.log("wee");
+    if(bar[4]=="Salmon"){
+      salmon+=1;
+    }
+    if(bar[4]=="Pike"){
+      pike+=1;
+    }
+    if(bar[4]=="Cod"){
+      cod+=1;
+    }
+    if(bar[4]=="Mackeral"){
+      mackeral+=1;
+    }
+    if(bar[10]=="Salmon"){
+      salmon+=1;
+    }
+    if(bar[10]=="Pike"){
+      pike+=1;
+    }
+    if(bar[10]=="Cod"){
+      cod+=1;
+    }
+    if(bar[10]=="Mackeral"){
+      mackeral+=1;
+    }
+    var tr = "<tr>";
+    var t = "";
+    tr += "<td>"+bar[0]+"</td>";
+    tr += "<td>"+bar[1]+"</td>";
+    tr += "<td>"+bar[2]+"</td>";
+    tr += "<td>"+bar[3]+"</td>";
+    tr += "<td>"+bar[4]+"</td>";
+    tr += "<td>"+bar[5]+"</td>";
+    tr += "</tr>";
+    t += tr;
+    //bar2=choice[my_list[i+1]].split(",");
+    var tr2 = "<tr>";
+    var t2 = "";
+    tr2 += "<td>"+bar[6]+"</td>";
+    tr2 += "<td>"+bar[7]+"</td>";
+    tr2 += "<td>"+bar[8]+"</td>";
+    tr2 += "<td>"+bar[9]+"</td>";
+    tr2 += "<td>"+bar[10]+"</td>";
+    tr2 += "<td>"+bar[11]+"</td>";
+    tr2 += "</tr>";
+    t2 += tr2;
+    try{
+    document.getElementById(blast).innerHTML += t
+    document.getElementById(blast).innerHTML += t2
+    blast++;
+    }
+    catch{
+      console.log("o");
+    }
+  }
+  catch{
+    break;
+  }
+    }
+   var blocks=document.getElementsByClassName("well well-sm");
+  for (var b=0; b < 5; b++) {
+   try{
+   blocks[b].className ="well well-sm well-success";
+   }
+    catch{
+    break;
+    }
+  }
+  
+}
+setTimeout("showIt2()", 2000); // after 5 secs

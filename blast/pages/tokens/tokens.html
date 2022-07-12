@@ -1,6 +1,7 @@
 <head>
 	<!-- Load plotly.js into the DOM -->
 	<script src='https://cdn.plot.ly/plotly-2.12.1.min.js'></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.js" ></script>
 <script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -10,6 +11,7 @@
 
 <h1>Fishery Blockchain</h1>
 <table class="trades" id="initial_list" style="width:30%"></table>
+
 <select onchange="categories()"id="selectCat">
     <option>Choose a country</option>    
 </select>
@@ -35,13 +37,77 @@
     </h3>
     <div class="row row-horizon">
         <div class="col-xs-7 tree" ng-repeat="block in peer.blocks">
-            <block id="{{block.changer}}"
-                   number="block.number"
-                   nonce="block.nonce"
-                   hash="block.hash"
-                   valid="block.valid"
-                   prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
-            </block>
+            <div ng-if="block.changer == 100">
+                <div class="blank1">
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                    </div>
+                <!-- code to render a large video block-->
+            </div>
+            <div ng-if="block.changer == 101">
+                <div class="blank2">
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                    </div>
+                <!-- code to render a large video block-->
+            </div>
+            <div ng-if="block.changer == 102">
+                <div class="blank3">
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                    </div>
+                <!-- code to render a large video block-->
+            </div>
+            <div ng-if="block.changer == 103">
+                <div class="blank4">
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                    </div>
+                <!-- code to render a large video block-->
+            </div>
+            <div ng-if="block.changer == 104">
+                <div class="blank5">
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                    </div>
+                <!-- code to render a large video block-->
+            </div>
+            <div ng-if="block.changer < 99">
+                
+                    <block id="{{block.changer}}"
+                           number="block.number"
+                           nonce="block.nonce"
+                           hash="block.hash"
+                           valid="block.valid"
+                           prev="!block.prev ? peer.blocks[$index-1].hash : block.prev">
+                    </block>
+                <!-- code to render a large video block-->
+            </div>
         <div class="col-xs-7 tree" style="position:absolute; left:-167px; top:150px; overflow: hidden;">
         <hr class ="liners" style="display: none;"size="6" width="35" color="black">
         </div>
